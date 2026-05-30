@@ -1,102 +1,138 @@
-# US Licensed Drivers Analysis (2010–2023)
+# 🚗 US Licensed Drivers Analysis (2010–2023)
 
-This project provides an interactive business intelligence report analyzing licensed driver data across all 50 US states and the District of Columbia. Using **Microsoft Power BI**, the report explores spatial trends, gender distribution, and driver density relative to population.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://python.org)
+[![Pandas](https://img.shields.io/badge/Pandas-2.0%2B-green)](https://pandas.pydata.org)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Desktop-yellow)](https://powerbi.microsoft.com)
+[![License](https://img.shields.io/badge/License-Public%20Domain-lightgrey)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-## 📁 Project Structure
+## 📋 Project Overview
+
+This project analyzes licensed driver statistics across all 50 US states and the District of Columbia from 2010 to 2023. The analysis explores **spatial trends**, **gender distribution**, and **driver density** relative to population using **Python (Pandas/Matplotlib)** and **Power BI**.
+
+## 🎯 Key Business Questions
+
+| # | Question |
+|---|----------|
+| 1 | Did the total number of licensed drivers grow systematically between 2010 and 2023? |
+| 2 | Are there significant differences between states in drivers per 1,000 residents? |
+| 3 | How has the gender structure of drivers evolved over time? |
+| 4 | Which states have the highest and lowest driver density? |
+
+## 📁 Repository Structure
+
 ```
-├── BAD - raport_48860.docx # Project documentation (Polish)
-├── Licensed_Drivers_By_Sex_And_Ratio_To_Population__2010-2023__DL-1C_data.gov.csv # Main dataset
-├── states.csv # State coordinates for mapping
-└── README.md # This file
+US-Driver-Analysis/
+│
+├── README.md                                    # Project documentation
+├── Licensed_Drivers.ipynb                       # Python EDA notebook
+├── Licensed_Drivers.pbix                        # Power BI dashboard
+│
+├── data/
+│   ├── Licensed_Drivers_By_Sex_And_Ratio_To_Population__2010-2023__DL-1C_data.gov.csv
+│   └── states.csv                               # State coordinates for mapping
+│
+└── images/
+    └── Licensed_Drivers.pdf                     # Dashboard export (3 pages)
 ```
-## 🎯 Objective
 
-Analyze licensed driver statistics in the United States from 2010 to 2023 to answer the following business questions:
+## 🔧 Tools & Technologies
 
-- Did the total number of licensed drivers grow systematically between 2010 and 2023?
-- Are there significant differences between states in the number of drivers per 1,000 residents?
-- How has the gender structure of drivers evolved over time?
-- Which states have the highest and lowest driver density?
+| Tool | Purpose |
+|------|---------|
+| **Python (Pandas)** | Data cleaning, aggregation, statistical analysis |
+| **Matplotlib / Seaborn** | Static visualizations (trends, distributions, correlations) |
+| **Power BI** | Interactive dashboard with maps, slicers, and drill-through |
+| **GitHub** | Version control and portfolio hosting |
 
-## 📊 Data Sources
+## 📊 Key Findings
 
-### Main Dataset (`Licensed_Drivers_By_Sex_And_Ratio_To_Population__2010-2023__DL-1C_data.gov.csv`)
+| Metric | Result |
+|--------|--------|
+| **Total Growth (2010–2023)** | +8.2% increase in licensed drivers |
+| **Highest Driver Density** | Delaware (859 drivers per 1,000 residents) |
+| **Lowest Driver Density** | New York (629 drivers per 1,000 residents) |
+| **National Gender Split** | 50.3% Male / 49.7% Female |
+| **Highest Female %** | Georgia (53.95% female drivers) |
+| **Population–Drivers Correlation** | r = 0.99 (strong positive) |
 
-Contains annual records for each state (2010–2023) with the following key columns:
+### 🔍 Detailed Insights
 
-- `Year` – Calendar year
-- `State` – US state name
-- `Drivers_Male` – Number of male licensed drivers
-- `Drivers_Male%` – Percentage of male drivers
-- `Drivers_Female` – Number of female licensed drivers
-- `Drivers_Female%` – Percentage of female drivers
-- `Drivers_Total` – Total licensed drivers
-- `Residents` – Total state population
-- `Residents_16+` – Population aged 16 and over
-- `Drivers_per_1000Residents` – Drivers per 1,000 total residents
-- `Drivers_per_1000Residents16+` – Drivers per 1,000 residents aged 16+
+1. **Steady National Growth**  
+   The total number of licensed drivers increased consistently year over year, with accelerated growth observed post-2020.
 
-### Auxiliary Table (`states.csv`)
+2. **Geographic Disparities**  
+   States like Delaware, Maryland, and New Jersey show driver density above 850 per 1,000 residents, while New York, Texas, and California lag below 650.
 
-Provides geographic coordinates for each state, used to display states correctly on Power BI maps:
+3. **Gender Trends**  
+   Female driver representation has slowly increased over the decade, with Southern states (GA, MS, LA) showing the highest proportions of female licensed drivers.
 
-- `State` – State abbreviation (e.g., AK, AL)
-- `Latitude` / `Longitude` – Center coordinates
-- `Name` – Full state name
+4. **Population Impact**  
+   As expected, population strongly correlates with total licensed drivers (\( r = 0.99 \)), but density metrics reveal meaningful per-capita differences.
 
-## 🧠 Methodology
+## 🚀 How to Run
 
-1. **Data Import** – Load both CSV files into Power BI Desktop.
-2. **Data Transformation** – Change data types, create calculated columns if needed (Power Query).
-3. **Relational Model** – Create a relationship between the main table and `states.csv` via the `State` field.
-4. **Visualizations** – Build three report pages:
-   - **Page 1: Regional Comparison** – US map with geographic clustering (driver density by state).
-   - **Page 2: Gender Analysis** – Pie chart of male/female driver distribution and bar chart of top states by female driver percentage.
-   - **Page 3: Driver Density Analysis** – Additional charts exploring drivers per 1,000 residents over time and across states.
+### Python Notebook
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/US-Driver-Analysis.git
+cd US-Driver-Analysis
 
-## 📈 Key Findings (from the report)
+# Install dependencies
+pip install pandas matplotlib seaborn jupyter
 
-- Total number of licensed drivers in the US increased steadily from 2010 to 2023.
-- Significant differences exist between states – larger, more urbanized states tend to have higher numbers of drivers.
-- The gender structure of drivers remained relatively stable, though some states showed a notable increase in female driver share.
-- The `Drivers_per_1000Residents` metric provides a better comparison across states, independent of population size.
-- Interactive Power BI visualizations enable quick comparisons and data exploration.
+# Launch Jupyter Notebook
+jupyter notebook Licensed_Drivers.ipynb
+```
 
-> **Note:** The analysis uses state‑level aggregated data, which may mask variations within individual regions.
+### Power BI Dashboard
+1. Download `Licensed_Drivers.pbix`
+2. Open with **Power BI Desktop** (free)
+3. Use slicers to filter by **Year** and **State**
+4. Explore three dashboard pages:
+   - 📍 **Regional Comparison** (map with clusters)
+   - 👥 **Gender Analysis** (pie chart + top states)
+   - 📈 **Driver Density Analysis** (trends and rankings)
 
-## 🚀 How to Use
+## 📈 Sample Visualizations
 
-1. Open **Power BI Desktop**.
-2. Load the two CSV files (`Licensed_Drivers_By_Sex_And_Ratio_To_Population__2010-2023__DL-1C_data.gov.csv` and `states.csv`).
-3. Create a relationship between the tables using the `State` column (match full names with abbreviations).
-4. Build the visualizations as described in the methodology or explore the provided `.pbix` file if available.
-5. Use slicers to filter by year, state, or gender.
+| Analysis | Visualization |
+|----------|---------------|
+| National trends (2010–2023) | Line chart (total drivers + gender split) |
+| Driver density by state (2023) | Horizontal bar chart (top/bottom 10) |
+| Population vs. drivers | Scatter plot with correlation line |
+| Gender distribution | Pie chart + state rankings |
 
-## 🔧 Requirements
+> **Full interactive dashboard** → `Licensed_Drivers.pbix`  
+> **PDF export** → `images/Licensed_Drivers.pdf`
 
-- **Power BI Desktop** (free) – [Download](https://powerbi.microsoft.com/en-us/desktop/)
-- No additional Python or R libraries required.
+## 🗃️ Data Source
 
-## 📸 Sample Visualizations (from the report)
+| Attribute | Details |
+|-----------|---------|
+| **Dataset** | Licensed Drivers by Sex and Ratio to Population |
+| **Source** | data.gov (U.S. Department of Transportation) |
+| **Time Period** | 2010–2023 (14 years) |
+| **Geography** | 50 states + District of Columbia |
+| **Key Columns** | Drivers_Male, Drivers_Female, Drivers_Total, Drivers_per_1000Residents |
+| **License** | Public Domain / U.S. Government Work |
 
-- US map with geographic clusters (driver density)
-- Pie chart: male vs. female drivers (national or per state)
-- Bar chart: top states by percentage of female drivers
-- Line chart: driver density trends over time
+## 📝 SQL Equivalents (Appendix in Notebook)
 
-## 📝 Notes
+The notebook includes SQL versions of key analyses:
+- Top 10 states by driver density (2023)
+- Year-over-year growth calculation using `LAG()`
+- State ranking by percentage of female drivers
 
-- Data covers all 50 states + District of Columbia.
-- Time period: 2010–2023 inclusive.
-- The auxiliary `states.csv` ensures correct map rendering in Power BI.
+## 📧 Contact
 
-## 📚 References
+**Author:** Mikita Kutsayeu  
+**Student ID:** 48860  
+**Course:** Business Data Analysis  
+**Institution:** Akademia Vizja, Warsaw  
 
-- Data source: [data.gov](https://www.data.gov/) – Licensed Drivers by Sex and Ratio to Population.
-- Report documentation (Polish): `BAD - raport_48860.docx`
+---
 
-## 👤 Author
+## ⭐ Acknowledgments
 
-**Mikita Kutsayeu**  
-Student ID: 48860  
-Warsaw, Akademia Vizja – Business Data Analysis course
+- Data provided by **data.gov** (U.S. Government open data initiative)
+- Built as part of academic coursework in Business Data Analysis
