@@ -55,7 +55,7 @@ Licensed_Drivers_PowerBI/
 
 | Metric | Result |
 |--------|--------|
-| **Total Growth (2010–2023)** | +13.1% increase in licensed drivers |
+| **Total Growth (2010–2023)** | +8.2% increase in licensed drivers |
 | **Highest Driver Density** | Delaware (859 drivers per 1,000 residents) |
 | **Lowest Driver Density** | New York (629 drivers per 1,000 residents) |
 | **National Gender Split (2023)** | 50.3% Male / 49.7% Female |
