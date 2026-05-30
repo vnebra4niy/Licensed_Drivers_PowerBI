@@ -33,6 +33,11 @@ Licensed_Drivers_PowerBI/
 │
 └── images/
     └── Licensed_Drivers.pdf     # PDF export of the Power BI dashboard (3 pages)
+    └── driver_density.png
+    └── gender_analysis.png
+    └── national_trends.png
+    └── population_vs_drivers.png
+    └── top_states_trends.png
 ```
 
 ## 🔧 Tools & Methodologies
