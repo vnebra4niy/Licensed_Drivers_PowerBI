@@ -159,4 +159,4 @@ The Appendix of `Licensed_Drivers.ipynb` includes SQL versions of key analyses, 
 **Author:** Mikita Kutsayeu (GitHub: [vnebra4niy](https://github.com/vnebra4niy))  
 **Course:** Business Data Analysis  
 
-**Data provided by:** [data.gov](https://catalog.data.gov/dataset/licensed-drivers-by-sex-and-ratio-to-population-2010-2023) (U.S. Government open data initiative)
+**Data provided by:** [data.gov](https://catalog.data.gov/dataset/licensed-drivers-by-sex-and-ratio-to-population-2010-2023-dl-1c?from_hint=eyJxIjoibGljZW5zZWQgZHJpdmVycyJ9) (U.S. Government open data initiative)
